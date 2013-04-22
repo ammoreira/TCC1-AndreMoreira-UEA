@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="81dp" >
+
+        <RadioButton
+            android:id="@+id/radioWriteTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Write Tag" />
+
+        <RadioButton
+            android:id="@+id/radioReadTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read Tag" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editSSID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/radioGroup1"
+        android:layout_below="@+id/radioGroup1"
+        android:layout_marginTop="70dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editPWD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editPWD"
+        android:layout_alignBottom="@+id/editPWD"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:text="password" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editSSID"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginLeft="16dp"
+        android:text="ssid" />
+
+</RelativeLayout>
