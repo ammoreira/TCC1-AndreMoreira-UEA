@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Prototype NFC-WIFI</string>
+    <string name="menu_settings">Settings</string>
+    <string name="back_to_main">Go back</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="university">Universidade do Estado do Amazonas</string>
+    <string name="title">NFC-WIFI  1st Prototype</string>
+    <string name="nfc_writer_btn"> NFC tag writer</string>
+    <string name="wifi_connect_btn">Wifi connector</string>
+    <string name="nfc_layout_title">TAG Writer</string>
+    <string name="nfc_ssid_label">SSID:</string>
+    <string name="nfc_pwd_label">PWD:</string>
+    <string name="nfc_instructions">Fill the SSID and PWD areas and tap the NFC TAG </string>
+</resources>
