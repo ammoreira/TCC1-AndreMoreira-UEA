@@ -13,35 +13,35 @@ import android.widget.Toast;
 public class WiFiController extends Activity implements WIFI{
 
 	private WifiManager wifiManager;
-	
+
 	public WiFiController(Context context){
-			wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE); 
+		wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE); 
 	}
-	
+
 	public boolean checkWifiEnabled(){
 		return wifiManager.isWifiEnabled();
 	}
-	
+
 	public boolean setWifiEnabled(boolean enable)
 	{
 		return wifiManager.setWifiEnabled(enable);
 	}
-	
+
 	public boolean startWifiScan(){
 		return wifiManager.startScan();
 	}
 
 	public List<ScanResult> getScanResults(){
-		 return wifiManager.getScanResults(); 
+		return wifiManager.getScanResults(); 
 	}
-	
+
 	public WifiManager getWifiManager(){
 		return wifiManager;
 	}
-	
+
 	public void disconnect() throws RuntimeException{
 		try{
-			 wifiManager.disconnect();
+			wifiManager.disconnect();
 		}catch (Exception e) {
 			e.printStackTrace();
 			Log.d("disconnect failure", e.getMessage());
@@ -57,12 +57,10 @@ public class WiFiController extends Activity implements WIFI{
 	}
 
 	public void enableNetwork(int id) {
-	   wifiManager.enableNetwork(id, true) ;
-		
+		wifiManager.enableNetwork(id, true) ;
 	}
-	
+
 	public List<WifiConfiguration> getConfiguredNetworks(){
 		return wifiManager.getConfiguredNetworks();	
 	}
-	
 }

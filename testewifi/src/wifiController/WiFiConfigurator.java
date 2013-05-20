@@ -5,11 +5,11 @@ import android.net.wifi.WifiConfiguration;
 public class WiFiConfigurator{
 	
 	private WifiConfiguration wifiConfiguration;
-	private final String testSSID = ("\""+"estwifi"+"\"");
-	private final String testPWD = ("\""+"12345678"+"\"");
+	//private final String testSSID = ("\""+"estwifi"+"\"");
+	//private final String testPWD = ("\""+"12345678"+"\"");
 	//private final String testSSID = ("\""+"TUCUMA"+"\"");
-	//private final String testSSID = ("\""+"netvirtua204"+"\"");
-	//private final String testPWD = ("\""+"2095426940"+"\"");
+	private final String testSSID = ("\""+"netvirtua204"+"\"");
+	private final String testPWD = ("\""+"2095426940"+"\"");
 
 	public WiFiConfigurator(){
 		wifiConfiguration = new WifiConfiguration();

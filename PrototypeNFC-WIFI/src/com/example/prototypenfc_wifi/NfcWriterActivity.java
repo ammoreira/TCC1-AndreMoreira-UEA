@@ -21,27 +21,29 @@ import android.widget.Toast;
 public class NfcWriterActivity extends Activity{
 
 	private String TAG = "nfc_writer_activity";
+	private String SSID; 
+	private String PASSWORD;
 	private NFC nfc;
 	private ForegroundDispatcher foregroundDispatcher;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.nfc_tag_writer);
 		foregroundDispatcher = new NfcForegroundDispatcher(this);
 		nfc = new NfcDefaultProcessor();
-
 	}
-	
+
 	@Override
 	public void onNewIntent(Intent intent) {
 		Tag newTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 		EditText editSsid = (EditText) this.findViewById(R.id.nfc_writer_ssid);
+		SSID = "ssid:" + editSsid.getText().toString();
 		EditText editPwd = (EditText) this.findViewById(R.id.nfc_writer_pwd);
+		PASSWORD = "pwd:" + editPwd.getText().toString();
 		try {
-			nfc.writeNdefTag(newTag, editSsid.getText().toString(), editPwd.getText().toString());
+			nfc.writeNdefTag(newTag, SSID, PASSWORD);
 			Toast.makeText(this, "Tag written Successfully", Toast.LENGTH_LONG).show();
-			Toast.makeText(this, editSsid.getText().toString() + " + " + editPwd.getText().toString(), Toast.LENGTH_LONG).show();
 		} catch (UnsupportedEncodingException e) {
 			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 		} catch (IOException e) {
@@ -49,16 +51,8 @@ public class NfcWriterActivity extends Activity{
 		} catch (FormatException e) {
 			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 		}
-		
-		Button back_to_main_bt = (Button) this.findViewById(R.id.nfc_back);
-	    back_to_main_bt.setOnClickListener(new View.OnClickListener(){
-				public void onClick(View v) {
-					Intent mainLayout =  new Intent(v.getContext(), MainActivity.class);
-					startActivity(mainLayout);
-				}       	
-	        });	
 	}	
-	
+
 	@Override
 	public void onResume() {
 		Log.d(TAG, "onResume");
@@ -72,5 +66,5 @@ public class NfcWriterActivity extends Activity{
 		super.onPause();
 		foregroundDispatcher.disable();
 	}
-		
+
 }

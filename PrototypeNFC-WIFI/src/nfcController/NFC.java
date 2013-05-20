@@ -12,7 +12,7 @@ public interface NFC {
 	void readNdefTag(Intent intent);
 
 	void writeNdefTag(Tag tag, String ssid, String password) throws UnsupportedEncodingException, IOException,
-			FormatException;
+	FormatException;
 
 	String getSSID();
 

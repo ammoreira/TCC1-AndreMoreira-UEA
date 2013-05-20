@@ -73,7 +73,7 @@ public class NfcDefaultProcessor extends Activity implements NFC {
 	}
 
 	public void writeNdefTag(Tag tag, String ssid, String password) throws UnsupportedEncodingException, IOException,
-			FormatException {
+	FormatException {
 
 		if (ssid == null){
 			throw new IllegalArgumentException();
@@ -82,7 +82,14 @@ public class NfcDefaultProcessor extends Activity implements NFC {
 		if (ssid.isEmpty()){
 			throw new IllegalArgumentException();
 		}
-		
+		if (password == null){
+			throw new IllegalArgumentException();
+		}
+
+		if (password.isEmpty()){
+			throw new IllegalArgumentException();
+		}
+
 		NdefRecord[] records = { createNdefRecord(ssid), createNdefRecord(password) };
 		NdefMessage message = new NdefMessage(records);
 		Ndef ndef = Ndef.get(tag);
